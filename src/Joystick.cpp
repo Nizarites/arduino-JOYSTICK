@@ -60,6 +60,25 @@ String Joystick::toString() {
     ret.concat(", pinZ=");
     ret.concat(this->pinZ);
     ret.concat("}");
-    
     return ret;
+}
+
+/* Method - get the position on the X-Axis */
+int Joystick::getX() {
+    int rawValue = analogRead(this->pinX);
+    int value = map(rawValue, 0, 1023,  0, 100);
+    return value;
+}
+
+/* Method - get the position on the Y-Axis */
+int Joystick::getY() {
+    int rawValue = analogRead(this->pinY);
+    int value = map(rawValue, 0, 1023, 0, 100);
+    return value;
+}
+
+/* Method - get the current state of the click */
+int Joystick::isClicked() {
+    bool value = digitalRead(this->pinZ);
+    return !value;
 }

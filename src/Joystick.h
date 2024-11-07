@@ -10,6 +10,9 @@ class Joystick {
                 void printZ(String);
                 void print(String, String, String, int, int);
                 String toString();
+		int isClicked();
+		int getX();
+                int getY();
     private:    int pinX;
                 int pinY;
                 int pinZ;
